@@ -1,7 +1,7 @@
 import { ToDoItem } from "../model/ToDoItem"
 import { ToDoList } from "../model/ToDoList"
 import { TestStorage } from "../test/TestStorage"
-import { SaveItemInToDoList } from "./SaveItemInToDoList"
+import { DeleteItemToDoList } from "./DeleteItemToDoList"
 
 
 const makeSut = () => {
@@ -30,7 +30,7 @@ const makeSut = () => {
 
     const storage = new TestStorage({ storage: [] })
 
-    const sut = new SaveItemInToDoList({
+    const sut = new DeleteItemToDoList({
         list,
         item: newItem,
         storage
@@ -44,19 +44,21 @@ const makeSut = () => {
     }
 }
 
-describe('SaveItemInToDoList', () => {
-    test('Should add list updated with new item in storage', () => {
-        const { newItem, list, storage } = makeSut()
-
-        const sut = new SaveItemInToDoList({
-            item: newItem,
-            list,
-            storage
-        })
-
-        sut.save()
-
-        expect(list.items).not.toEqual(storage.storage)
-        expect(storage.storage).toContain(newItem)
+describe('DeleteItemInToDoList', () => {
+    
+    test('should throw error when dont found item in list',() =>{
+        const {sut,storage, newItem} = makeSut() 
+        const result = () => sut.delete()
+        expect(result).toThrow('Elemento não encontrado!')
+        expect(storage.storage).not.toContain(newItem)
+        
+    })
+    test('should delete item of list when item found', ()=>{
+        const {list, storage,} = makeSut()
+        const olderList = list.items
+        const sut = new DeleteItemToDoList({ item:list.items[0],list,storage })
+        sut.delete()
+        expect(list.items).toEqual(storage.storage)
+        expect(storage.storage).not.toContain(olderList[0]) 
     })
 })

@@ -22,5 +22,7 @@ export class SaveItemInToDoList implements ISaveItemInToDoList {
     save(): void {
         this.list.add(this.item)
         this.storage.save([...this.list.items, this.item])
+        
     }
+
 }
