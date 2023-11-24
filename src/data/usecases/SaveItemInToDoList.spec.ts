@@ -7,12 +7,10 @@ import { SaveItemInToDoList } from "./SaveItemInToDoList"
 const makeSut = () => {
     const items: ToDoItem[] = [
         new ToDoItem({
-            createdAt: new Date(),
             done: false,
             name: "teste"
         }),
         new ToDoItem({
-            createdAt: new Date(),
             done: false,
             name: "test2"
         }),
@@ -23,7 +21,6 @@ const makeSut = () => {
     })
 
     const newItem = new ToDoItem({
-        createdAt: new Date(),
         done: false,
         name: "test3"
     })
