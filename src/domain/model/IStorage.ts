@@ -1,3 +1,3 @@
 export interface IStorage {
-    save: (element: unknown) => void
+	save: (element: unknown) => void
 }

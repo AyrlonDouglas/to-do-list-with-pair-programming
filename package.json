@@ -1,24 +1,29 @@
 {
-  "name": "to-do-list-with-pair-programming",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest --no-cache --watchAll",
-    "test:coverage": "jest --coverage"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@types/jest": "^29.5.8",
-    "@types/node": "^20.9.0",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.1.1",
-    "typescript": "^5.2.2",
-    "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "@types/uuid": "^9.0.7"
-  }
+	"name": "to-do-list-with-pair-programming",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest --no-cache --watchAll",
+		"test:coverage": "jest --coverage"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@types/jest": "^29.5.8",
+		"@types/node": "^20.9.0",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.1.1",
+		"typescript": "^5.2.2",
+		"uuid": "^9.0.1"
+	},
+	"devDependencies": {
+		"@types/uuid": "^9.0.7",
+		"@typescript-eslint/eslint-plugin": "^6.13.1",
+		"@typescript-eslint/parser": "^6.13.1",
+		"eslint": "^8.54.0",
+		"eslint-config-prettier": "^9.0.0",
+		"prettier": "3.1.0"
+	}
 }
