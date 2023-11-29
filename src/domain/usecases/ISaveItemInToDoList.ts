@@ -1,3 +1,3 @@
 export interface ISaveItemInToDoList {
-    save(): void
+	save(): void
 }

@@ -1,17 +1,18 @@
-import { IStorage } from "@/domain/model/IStorage";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { IStorage } from '@/domain/model/IStorage'
 
 interface TestStorageParams {
-    storage: any[]
+	storage: any[]
 }
 
 export class TestStorage implements IStorage {
-    storage: any[]
+	storage: any[]
 
-    constructor(params: TestStorageParams) {
-        this.storage = params.storage
-    }
+	constructor(params: TestStorageParams) {
+		this.storage = params.storage
+	}
 
-    save(element: unknown): void {
-        this.storage = element as []
-    }
+	save(element: unknown): void {
+		this.storage = element as []
+	}
 }
