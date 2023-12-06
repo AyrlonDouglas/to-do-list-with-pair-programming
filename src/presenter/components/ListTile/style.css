@@ -1,0 +1,25 @@
+.container-listTile{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.icon-check{
+    background-color: #F4A622;
+    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem ;
+    color: white;
+}
+
+.checked{
+    background-color: #9DA0A5;
+    
+}
+
+
+
+.checked-label{
+    color: #9DA0A5;
+    text-decoration: line-through;
+}
+ 

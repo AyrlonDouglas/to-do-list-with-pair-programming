@@ -1,8 +1,9 @@
-export default function App() {
+import Home from './pages/Home'
 
+export default function App() {
   return (
     <>
-     <h1>OII</h1>
+      <Home />
     </>
   )
 }

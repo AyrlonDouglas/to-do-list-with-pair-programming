@@ -2,7 +2,7 @@ MVP
 O Aplicativo deve conter
 	- Uma lista de tarefas única.
 	- Um status para a lista [Em progresso, Finalizada, Não iniciada, Vazia].
-	- Quando não existir tarefas criadas, mostra-se algum elemento visual para as adicionar.
+	- Deve mostrar algum elemento visual para adicionar uma tarefa.
 	- Ação de editar um tarefa.
 	- Ação de remover uma tarefa.
 	- Ação de completar uma tarefa.

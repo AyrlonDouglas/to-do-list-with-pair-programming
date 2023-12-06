@@ -1,0 +1,11 @@
+.container-listLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.status {
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
