@@ -5,14 +5,20 @@ interface TestStorageParams {
 	storage: any[]
 }
 
-export class TestStorage implements IStorage {
+export class TestStorage implements IStorage<any> {
 	storage: any[]
 
 	constructor(params: TestStorageParams) {
 		this.storage = params.storage
 	}
 
+	get(): any {
+		return [] // AJUSTAR DEPOIS
+	}
+
 	save(element: unknown): void {
 		this.storage = element as []
 	}
+
+
 }
