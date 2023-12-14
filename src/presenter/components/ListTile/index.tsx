@@ -5,10 +5,10 @@ export default function ListTile(prop: ListTileProps) {
 
   return (
     <div className="container-listTile">
-      <div className={`icon-check ${checked ? 'checked' :  ''}`}>
-        {checked && <span className="material-symbols-outlined">check</span>}
+      <div className={`icon-check ${checked ? 'checked' : ''}`}>
+        <span className="material-symbols-outlined">check</span>
       </div>
-      <p className={checked ? 'checked-label' :  ''}>{label}</p>
+      <p className={checked ? 'checked-label' : ''}>{label}</p>
     </div>
   )
 }

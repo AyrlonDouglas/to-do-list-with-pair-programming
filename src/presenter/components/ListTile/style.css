@@ -1,25 +1,31 @@
-.container-listTile{
-    display: flex;
-    gap: 0.5rem;
+.container-listTile {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.icon-check{
-    background-color: #F4A622;
-    border-radius: 100%;
-    width: 1.5rem;
-    height: 1.5rem ;
-    color: white;
+.icon-check {
+  background-color: #f4a622;
+  border-radius: 100%;
+  width: 1.6rem;
+  height: 1.6rem;
+  color: white;
+  display: block;
 }
 
-.checked{
-    background-color: #9DA0A5;
-    
+.checked {
+  background-color: #9da0a5;
 }
 
-
-
-.checked-label{
-    color: #9DA0A5;
-    text-decoration: line-through;
+.icon-check:not(.checked) span {
+  color: #f4a622;
 }
- 
+
+.checked-label {
+  color: #9da0a5;
+  text-decoration: line-through;
+}
+
+.icon-check span {
+  font-size: 1.6rem;
+}

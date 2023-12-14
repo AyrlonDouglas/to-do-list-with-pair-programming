@@ -1,7 +1,10 @@
-.container-chip{
-    background-color: #F5A623;
-    color: white;
-    padding: 0.5rem 1rem;    
-    border-radius: 25px;
+.container-chip {
+  background-color: #f5a623;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2.4rem;
 }
 
+.container-chip p {
+  font-weight: 700;
+}
