@@ -1,36 +1,21 @@
-import Button from '@/presenter/components/Button'
-import './styles.css'
-import { ButtomTypeEnum } from '@/shared/enums/ButtomTypeEnum'
 import { useState } from 'react'
-import { SaveItemInToDoList } from '@/core/data/usecases/SaveItemInToDoList'
-import { LocalStorage } from '@/core/data/model/LocalStorage'
+import Button from '@/presenter/components/Button'
+import { ButtomTypeEnum } from '@/shared/enums/ButtomTypeEnum'
 import { ToDoItem } from '@/core/data/model/ToDoItem'
-import { GetToDoList } from '@/core/data/usecases/GetToDoList'
+import './styles.css'
+import { useToDoListContext } from '@/presenter/context/useToDoListContext'
 
 export default function ListLayout(props: ListLayoutProps) {
   const { header, list, status, openAddItem, toggleOpenAddItem } = props
   const [item, setItem] = useState<string>()
-
+  const { saveItemInList } = useToDoListContext()
   const saveItem = () => {
     if (!item) return
-
-    const storage = new LocalStorage()
-
     const toDoItem = new ToDoItem({
       done: false,
       name: item,
     })
-
-    const list = new GetToDoList({ storage }).get()
-
-    console.log('list', list)
-    console.log('toDoItem', toDoItem)
-    new SaveItemInToDoList({
-      storage,
-      item: toDoItem,
-      list,
-    }).save()
-
+    saveItemInList(toDoItem)
     toggleOpenAddItem()
   }
 
@@ -52,6 +37,7 @@ export default function ListLayout(props: ListLayoutProps) {
               label="Salvar"
               onClick={() => {
                 saveItem()
+                setItem(undefined)
               }}
             />
             <Button

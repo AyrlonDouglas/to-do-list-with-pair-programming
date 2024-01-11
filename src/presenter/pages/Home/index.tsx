@@ -4,22 +4,13 @@ import Chip from '@/presenter/components/Chip'
 import ListTile from '@/presenter/components/ListTile'
 import Button from '@/presenter/components/Button'
 import { ButtomTypeEnum } from '@/shared/enums/ButtomTypeEnum'
-import { useEffect, useState } from 'react'
-import { GetToDoList } from '@/core/data/usecases/GetToDoList'
-import { LocalStorage } from '@/core/data/model/LocalStorage'
-import { IToDoList } from '@/core/domain/model/IToDoList'
+import { useState } from 'react'
+import { useToDoListContext } from '@/presenter/context/useToDoListContext'
 
 export default function Home() {
   const [openAddItem, setOpenAddItem] = useState(false)
   const toggleOpenAddItem = () => setOpenAddItem(!openAddItem)
-  const [list, setList] = useState<IToDoList>()
-
-  useEffect(() => {
-    setList(() => {
-      const storage = new LocalStorage()
-      return new GetToDoList({ storage }).get()
-    })
-  }, [openAddItem])
+  const { todoItemList } = useToDoListContext()
 
   return (
     <div className="container-home">
@@ -30,11 +21,12 @@ export default function Home() {
         toggleOpenAddItem={toggleOpenAddItem}
         list={
           <>
-            {list?.items.map((item) => (
+            {todoItemList?.items.map((item) => (
               <ListTile
                 key={item.id.value}
                 label={item.name}
                 checked={item.done}
+                item={item}
               />
             ))}
           </>
