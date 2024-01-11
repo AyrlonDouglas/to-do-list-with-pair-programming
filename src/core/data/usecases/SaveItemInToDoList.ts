@@ -9,18 +9,16 @@ interface SaveItemInToDoListParams {
 	storage: IStorage
 }
 export class SaveItemInToDoList implements ISaveItemInToDoList {
-	private list: IToDoList
 	private item: IToDoItem
 	private storage: IStorage
 
 	constructor(params: SaveItemInToDoListParams) {
-		this.list = params.list
 		this.item = params.item
 		this.storage = params.storage
 	}
 
 	save(): void {
-		this.list.add(this.item)
-		this.storage.save([...this.list.items, this.item])
+		const list = this.storage.get() as {items:any}
+		this.storage.save([...list.items, this.item])
 	}
 }
