@@ -3,7 +3,7 @@ import './style.css'
 import { useToDoListContext } from '@/presenter/context/useToDoListContext'
 
 export default function ListTile(prop: ListTileProps) {
-  const { label, checked, item } = prop
+  const { label, checked, item, toggleOpenSaveItem } = prop
   const { editItemInList, deleteItemInList } = useToDoListContext()
   const onCheck = () => {
     editItemInList({
@@ -15,6 +15,11 @@ export default function ListTile(prop: ListTileProps) {
     deleteItemInList(item)
   }
 
+  const onEdit = (e: any) => {
+    e.stopPropagation()
+    toggleOpenSaveItem(item.id.value)
+  }
+
   return (
     <div className="container-listTile" onClick={() => onCheck()}>
       <div>
@@ -24,12 +29,19 @@ export default function ListTile(prop: ListTileProps) {
         <p className={checked ? 'checked-label' : ''}>{label}</p>
       </div>
 
-      <span
-        className="material-symbols-outlined delete-icon"
-        onClick={() => onDelete()}
-      >
-        delete
-      </span>
+      <div>
+        <span
+          className="material-symbols-outlined edit"
+          onClick={(e) => onEdit(e)}
+        >
+          edit
+        </span>
+
+        <span className="material-symbols-outlined" onClick={() => onDelete()}>
+          delete
+        </span>
+      </div>
+      
     </div>
   )
 }
@@ -38,4 +50,5 @@ interface ListTileProps {
   label: string
   checked: boolean
   item: IToDoItem
+  toggleOpenSaveItem: (id?: string) => void
 }
