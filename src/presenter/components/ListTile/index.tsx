@@ -15,7 +15,7 @@ export default function ListTile(prop: ListTileProps) {
     deleteItemInList(item)
   }
 
-  const onEdit = (e: any) => {
+  const onEdit = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
     toggleOpenSaveItem(item.id.value)
   }
@@ -41,7 +41,7 @@ export default function ListTile(prop: ListTileProps) {
           delete
         </span>
       </div>
-      
+
     </div>
   )
 }
